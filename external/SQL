@@ -1,0 +1,28 @@
+create database emp;
+use emp ;
+
+/*1*/
+create table Department (
+dept_no int primary key,
+dept_name varchar(20),
+location varchar(20));
+
+create table employee(
+emp_no int primary key,
+emp_name varchar(20),
+salary double,
+dept_no int ,
+foreign key(dept_no) references Department(dept_no));
+
+/*2*/
+insert into Department values (11,"MCA","TVM"),(12,"BSC","Kollam"),(13,"BCA","TCR"),(14,"MCA","TVM");
+insert into employee values(1,"Amal",15000,11),(2,"Rahul",15000,11),(3,"Aromal",17000,12),(4,"Deku",15800,13),(5,"Jeshma",14000,14),(6,"chinnu",11000,14);
+
+/*3*/
+select sum(salary) 'Total salary' from employee;
+/*4*/
+select d.dept_name,count(e.emp_no) 'employee count' 
+from employee e join Department d on e.dept_no=d.dept_no
+group by d.dept_no;
+/*5*/
+select emp_name from employee where emp_name like "A%";
