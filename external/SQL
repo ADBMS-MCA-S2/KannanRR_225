@@ -21,7 +21,7 @@ insert into employee values(1,"Amal",15000,11),(2,"Rahul",15000,11),(3,"Aromal",
 /*3*/
 select sum(salary) 'Total salary' from employee;
 /*4*/
-select d.dept_name,count(e.emp_no) 'employee count' 
+select distinct d.dept_name,count(e.emp_no) 'employee count' 
 from employee e join Department d on e.dept_no=d.dept_no
 group by d.dept_no;
 /*5*/
